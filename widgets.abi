@@ -1,0 +1,52 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "goodbye",
+            "base": "",
+            "fields": [
+                {
+                    "name": "leaving",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "onlyboss",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "welcome",
+            "base": "",
+            "fields": [
+                {
+                    "name": "arrival",
+                    "type": "name"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "goodbye",
+            "type": "goodbye",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "onlyboss",
+            "type": "onlyboss",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "welcome",
+            "type": "welcome",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [],
+    "ricardian_clauses": [],
+    "variants": []
+}
