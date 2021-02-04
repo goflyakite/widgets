@@ -4,6 +4,28 @@
     "types": [],
     "structs": [
         {
+            "name": "addwidget",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "int128"
+                },
+                {
+                    "name": "widgetname",
+                    "type": "string"
+                },
+                {
+                    "name": "widgetdescrip",
+                    "type": "string"
+                },
+                {
+                    "name": "quantity",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
             "name": "goodbye",
             "base": "",
             "fields": [
@@ -19,17 +41,38 @@
             "fields": []
         },
         {
-            "name": "welcome",
+            "name": "widget",
             "base": "",
             "fields": [
                 {
-                    "name": "arrival",
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "quantity",
+                    "type": "uint64"
+                },
+                {
+                    "name": "widgetname",
+                    "type": "string"
+                },
+                {
+                    "name": "widgetdescrip",
+                    "type": "string"
+                },
+                {
+                    "name": "owner",
                     "type": "name"
                 }
             ]
         }
     ],
     "actions": [
+        {
+            "name": "addwidget",
+            "type": "addwidget",
+            "ricardian_contract": ""
+        },
         {
             "name": "goodbye",
             "type": "goodbye",
@@ -39,14 +82,17 @@
             "name": "onlyboss",
             "type": "onlyboss",
             "ricardian_contract": ""
-        },
-        {
-            "name": "welcome",
-            "type": "welcome",
-            "ricardian_contract": ""
         }
     ],
-    "tables": [],
+    "tables": [
+        {
+            "name": "widgetshelf",
+            "type": "widget",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
     "ricardian_clauses": [],
     "variants": []
 }

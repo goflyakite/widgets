@@ -9,6 +9,12 @@ This is the code from the **eosio** smart contracts [[course]](https://training.
 - Perform read/write/remove operations on the table
 
 
+## Setup
+
+You'll need an account named **widgetboss**
+
+
+
 ## Tech Stack
 
 I am using Ubuntu 18.04, EOS Studio using v2.0.6, v2.0.0 locally.
