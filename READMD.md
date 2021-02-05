@@ -9,9 +9,10 @@ This is the code from the **eosio** smart contracts [[course]](https://training.
 - Perform read/write/remove operations on the table
 
 
-## Setup
+## Setup & Notes
 
 You'll need an account named **widgetboss**
+I find that sometimes changes don't take fully after compile, so I log out of EOSStudio and come back in and it's fine. Tested this by finding out that a change was not taking - so used the original ACTION name and adding an "x" on the end - and that would fail.
 
 
 
@@ -25,5 +26,7 @@ I am using Ubuntu 18.04, EOS Studio using v2.0.6, v2.0.0 locally.
 
 Good milestones.
 
-* FirstCommit - Basic hello style functions, all three working.
+* d5c5e96 - Basic hello style functions, all three working.
+* 6140b99 - Working first cut of widget code. 
+
 

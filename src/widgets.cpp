@@ -20,8 +20,8 @@ CONTRACT widgets : public contract {
     };
     typedef multi_index<name("widgetshelf"), widget> widgetshelf_table;
 
+
     ACTION addwidget( int128_t id, string widgetname, string widgetdescrip, uint64_t quantity) {
-     
       check( has_auth( name ( "widgetsboss") ), "You're not my daddy.");
 
       widgetshelf_table _widgetshelf( get_self(),  get_self().value);     // Pass in Code (this  contract) and Scope
@@ -46,13 +46,36 @@ CONTRACT widgets : public contract {
       print ("Success!");
     }
 
+
+    ACTION removewidget( int128_t id, uint64_t quantity) {
+      require_auth( name ( "widgetsboss") );
+      widgetshelf_table _widgetshelf( get_self(),  get_self().value);
+
+      auto itr = _widgetshelf.find(id);
+      check( itr != _widgetshelf.end(), "\nWidget not found.");
+
+      if ( (itr->quantity - quantity) == 0) {
+        _widgetshelf.erase( itr );
+        print ("Successfully erased the widget ", id, " x ", quantity);
+      } else {
+        check( (quantity <= itr->quantity) , "You are trying to have negative toys.");
+        _widgetshelf.modify(itr, get_self(), [&]( auto& row_to_modify ) {
+          print("We have ", row_to_modify.quantity, " widgets.");
+          row_to_modify.quantity -= quantity;
+        });
+        print ("\nWe have removed ", quantity, " widgets.");
+      }
+    }
+     
+
     ACTION onlyboss() {
       require_auth( name ( "widgetsboss") );
       print ("Only user widgetsboss is allowed here. Hello BOSS.");
     }
 
+
     ACTION goodbye( name leaving) { 
-      print ("Goodbye cruel world...", leaving);
+      print ("Goodbye cruel world, see you later ", leaving);
     }
 
 };
